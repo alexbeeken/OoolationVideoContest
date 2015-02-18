@@ -1,6 +1,6 @@
 class SQL
 
   define_singleton_method(:connect) do
-    PG::Connection.open(:dbname => 'dc4clh7i0hvanm', :host => 'ec2-54-225-101-64.compute-1.amazonaws.com', :port => '5432', :password => 'REMOVED', :user => 'ndpcmhkggeejyz')
+    PG::Connection.open(:dbname => 'd4bgdt5ocge7js', :host => 'ec2-107-22-249-138.compute-1.amazonaws.com', :port => '5432', :password => 'REMOVED', :user => 'qpuirwwgokptzl')
   end
 end

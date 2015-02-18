@@ -1,23 +1,26 @@
 require("sinatra")
 require("sinatra/reloader")
-require('./lib/candidate')
-require('./lib/user')
+require('./lib/submission')
 require('pg')
 require('pry')
 require('./lib/sql')
-require 'sinatra/captcha'
 
 DB = SQL.connect
-
-=begin
-configure :development do
-  set :bind, '0.0.0.0'
-  set :port, 3000
-end
-=end
 
 get '/' do
   erb(:index)
 end
 
-get '/submit_video' do
+post '/submit_video' do
+  submission = Submission.new({
+    :video_title => params.fetch("video_title"),
+    :email => params.fetch("email"),
+    :name => params.fetch("name"),
+    :street_address => params.fetch("street_address"),
+    :city => params.fetch("city"),
+    :state => params.fetch("state"),
+    :zip => params.fetch("zip")
+  })
+  submission.save_to_database
+  erb(:thank_you)
+end
