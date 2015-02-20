@@ -19,7 +19,8 @@ post '/submit_video' do
     :street_address => params.fetch("street_address"),
     :city => params.fetch("city"),
     :state => params.fetch("state"),
-    :zip => params.fetch("zip")
+    :zip => params.fetch("zip"),
+    :link => params.fetch("link")
   })
   submission.save_to_database
   erb(:thank_you)
